@@ -25,6 +25,7 @@ def generateNodes(filename):
     x = ""
     y = ""
     nodeName = ""
+    idx = 0
     i = 0
     nodes = []
     isCoordinate = False
@@ -46,9 +47,10 @@ def generateNodes(filename):
                 y += text[i]
                 i += 1
 
-            nodes.append(Node(nodeName, float(x), float(y)))
+            nodes.append(Node(nodeName, float(x), float(y), idx))
             x = ""
             y = ""
+            idx += 1
             isCoordinate = False
 
         i += 1
