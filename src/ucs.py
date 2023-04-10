@@ -1,7 +1,7 @@
 from queue import PriorityQueue
 from livenode import LiveNode
 from node import Node
-import filereader
+# import filereader
 
 def uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode):
     prioQueue = PriorityQueue()
@@ -40,15 +40,15 @@ def printPath(path):
 
 
 # UCS Test
-nodes = filereader.generateNodes("test/test.txt")
-adjacencyMatrix = filereader.generateAdjacencyMatrix("test/test.txt")
-startNode = nodes[0]
-goalNode = nodes[-1]
+# nodes = filereader.generateNodes("test/test.txt")
+# adjacencyMatrix = filereader.generateAdjacencyMatrix("test/test.txt")
+# startNode = nodes[0]
+# goalNode = nodes[-1]
 
-result = uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode)
-print("Node = " + result.node.name)
+# result = uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode)
+# print("Node = " + result.node.name)
 
-path = constructPath(result)
-printPath(path)
+# path = constructPath(result)
+# printPath(path)
 
-print("Cost = " + str(result.costSoFar))
+# print("Cost = " + str(result.costSoFar))

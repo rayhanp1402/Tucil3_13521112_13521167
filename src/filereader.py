@@ -86,10 +86,10 @@ def generateAdjacencyMatrix(filename):
 
 
 # Filereader Test
-nodes = generateNodes("test/test.txt")
-adjacencyMatrix = generateAdjacencyMatrix("test/test.txt")
+# nodes = generateNodes("test/test.txt")
+# adjacencyMatrix = generateAdjacencyMatrix("test/test.txt")
 
-for i in range(len(nodes)):
-    print("Node " + nodes[i].name + " : x=" + str(nodes[i].x) + " : y=" + str(nodes[i].y) + " : idx=" + str(nodes[i].idx))
+# for i in range(len(nodes)):
+#     print("Node " + nodes[i].name + " : x=" + str(nodes[i].x) + " : y=" + str(nodes[i].y) + " : idx=" + str(nodes[i].idx))
 
-print(adjacencyMatrix)
+# print(adjacencyMatrix)
