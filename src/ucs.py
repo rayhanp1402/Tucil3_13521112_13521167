@@ -26,6 +26,8 @@ def constructPath(liveNode):
     for i in range(len(liveNode.prevNodes)-1, -1, -1):
         path.append(liveNode.prevNodes[i])
 
+    path.append(liveNode.node.name)
+
     return path
 
 
