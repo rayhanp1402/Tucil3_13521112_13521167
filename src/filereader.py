@@ -63,6 +63,7 @@ def generateAdjacencyMatrix(filename):
     currentRow = 0
     text = readFile(filename)
     firstIdx = ignoreFirstLine(filename)
+    elmt = ""
     for i in range(firstIdx, len(text) - 1):
         if(text[i] == '\n'):
             adjacencyMatrix.append([])
@@ -70,6 +71,10 @@ def generateAdjacencyMatrix(filename):
 
         else:
             if(text[i] != ' '):
-                adjacencyMatrix[currentRow].append(text[i])
+                while(text[i] != ' ' and text[i] != '\n'):
+                    elmt += text[i]
+                    i += 1
+                adjacencyMatrix[currentRow].append(float(elmt))
+                elmt = ""
 
     return adjacencyMatrix
