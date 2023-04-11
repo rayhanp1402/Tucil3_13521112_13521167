@@ -70,37 +70,62 @@ def generateNodes(filename):
 
     return nodes
 
+
+def ignoreNodes(filename):
+    # Ignores the node lines in the file text "filename"
+    # Returns the first index of the adjacency matrix line in the file text
+    text = readFile(filename)
+    i = ignoreFirstLine(filename)
+    for j in range(getNoOfNodes(filename)):
+        while(text[i] != '\n'):
+            i += 1
+        i += 1
+    return i
+
         
 def generateAdjacencyMatrix(filename):
-    adjacencyMatrix = [[]]
-    currentRow = 0
+    adjacencyMatrix = []
     text = readFile(filename)
-    firstIdx = ignoreFirstLine(filename)
     elmt = ""
-    i = firstIdx
-    while(i < len(text) - 1):
-        if(text[i] != ' ' and text[i] != '\n'):
+
+    i = ignoreNodes(filename)
+    for j in range(getNoOfNodes(filename)):
+        adjacencyMatrix.append([])
+        while(text[i] != '\n'):
+            while(text[i] == ' '):
+                i += 1
+
             while(text[i] != ' ' and text[i] != '\n'):
                 elmt += text[i]
                 i += 1
-            adjacencyMatrix[currentRow].append(float(elmt))
+
+            adjacencyMatrix[j].append(float(elmt))
             elmt = ""
 
-        if(text[i] == '\n'):
-            adjacencyMatrix.append([])
-            currentRow += 1
+            while(text[i] == ' '):
+                i += 1
 
         i += 1
-
-    adjacencyMatrix.pop()
-
+    
     return adjacencyMatrix
 
 
 
 # Filereader Test
+# print("Test-1 : ")
 # nodes = generateNodes("test/test.txt")
 # adjacencyMatrix = generateAdjacencyMatrix("test/test.txt")
+
+# for i in range(len(nodes)):
+#     print("Node " + nodes[i].name + " : x=" + str(nodes[i].x) + " : y=" + str(nodes[i].y) + " : idx=" + str(nodes[i].idx))
+
+# print(adjacencyMatrix)
+# print('\n')
+
+
+# print("Test-2 : ")
+# nodes = generateNodes("test/map1.txt")
+# adjacencyMatrix = generateAdjacencyMatrix("test/map1.txt")
 
 # for i in range(len(nodes)):
 #     print("Node " + nodes[i].name + " : x=" + str(nodes[i].x) + " : y=" + str(nodes[i].y) + " : idx=" + str(nodes[i].idx))
