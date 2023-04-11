@@ -9,7 +9,7 @@ class LiveNode:
         return self.compValue < otherLiveNode.compValue
 
     def addPrevNode(self, prevNode): # prevNode an instance of the class LiveNode
-        self.prevNodes += prevNode.node.name + prevNode.prevNodes
+        self.prevNodes += prevNode.node.name + ' ' + prevNode.prevNodes
         self.costSoFar += prevNode.costSoFar
 
     def addCost(self, cost):

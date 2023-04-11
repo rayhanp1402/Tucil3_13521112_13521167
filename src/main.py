@@ -2,6 +2,7 @@ import filereader
 import ucs
 import displaygraph
 import os.path
+import astar
 
 def getNode(nodes, targetNodeName):
     for i in range(len(nodes)):
@@ -46,7 +47,7 @@ def inputAlgorithm(nodes, adjacencyMatrix, startNode, goalNode):
             result = ucs.uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode)
             validAlgo = True
         elif(algo == '2'):
-            # A-star
+            result = astar.astar(nodes, adjacencyMatrix, startNode, goalNode)
             validAlgo = True
         else:
             print("Input invalid. Coba lagi\n")

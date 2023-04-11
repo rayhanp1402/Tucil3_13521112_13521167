@@ -25,11 +25,30 @@ def uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode):
     return currentNode
 
 
+def reverseString(string):
+    reversedString = ""
+    for i in range(len(string)-1, -1, -1):
+        reversedString += string[i]
+
+    return reversedString
+
+
 def constructPath(liveNode):
     path = []
-    for i in range(len(liveNode.prevNodes)-1, -1, -1):
-        path.append(liveNode.prevNodes[i])
+    prevNodeName = ""
+    i = len(liveNode.prevNodes) - 1
+    while (i > -1):
+        while(liveNode.prevNodes[i] != ' '):
+            prevNodeName += liveNode.prevNodes[i]
+            i -= 1
 
+        prevNodeName = reverseString(prevNodeName)
+        path.append(prevNodeName)
+        prevNodeName = ""
+        i -= 1
+
+    if(len(path) > 0):
+        del path[0]
     path.append(liveNode.node.name)
 
     return path
