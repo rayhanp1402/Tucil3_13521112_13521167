@@ -21,38 +21,51 @@ def ignoreFirstLine(filename):
     return i + 1
 
 
+def getNoOfNodes(filename):
+    text = readFile(filename)
+    noOfNodes = ""
+    i = 0
+    while(text[i] != '\n'):
+        noOfNodes += text[i]
+        i += 1
+
+    return int(noOfNodes)
+
+
 def generateNodes(filename):
     x = ""
     y = ""
     nodeName = ""
-    idx = 0
-    i = 0
     nodes = []
-    isCoordinate = False
     text = readFile(filename)
-    
-    while(text[i] != '\n'):
-        if(text[i] == '('):
-            isCoordinate = True
 
-        if(text[i] != ' ' and not(isCoordinate) and text[i] != ')'):
-            nodeName = text[i]
-
-        if(text[i] != ' ' and isCoordinate and text[i] != '('):
-            while(text[i] != ','):
-                x += text[i]
-                i += 1
+    i = ignoreFirstLine(filename)  
+    for j in range(getNoOfNodes(filename)):
+        while(text[i] == ' '):
             i += 1
-            while(text[i] != ')'):
-                y += text[i]
-                i += 1
 
-            nodes.append(Node(nodeName, float(x), float(y), idx))
-            x = ""
-            y = ""
-            idx += 1
-            isCoordinate = False
+        while(text[i] != ' '):
+            nodeName += text[i]
+            i += 1
 
+        while(text[i] == ' '):
+            i += 1
+
+        while(text[i] != ' '):
+            x += text[i]
+            i += 1
+
+        while(text[i] == ' '):
+            i += 1
+
+        while(text[i] != '\n'):
+            y += text[i]
+            i += 1
+
+        nodes.append(Node(nodeName, float(x), float(y), j))
+        nodeName = ""
+        x = ""
+        y = ""
         i += 1
 
     return nodes
