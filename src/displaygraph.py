@@ -31,8 +31,8 @@ def displayGraph(nodes, adjacencyMatrix, path):
     pos = nx.get_node_attributes(G,'pos')
 
     options = {
-        "font_size": 30,
-        "node_size": 2000,
+        "font_size": 24,
+        "node_size": 1000,
         "node_color": "skyblue",
         "linewidths": 5,
         "width": 5,
@@ -48,7 +48,7 @@ def displayGraph(nodes, adjacencyMatrix, path):
 
     # Set margins for the axes so that nodes aren't clipped
     ax = plt.gca()
-    ax.margins(0.20)
+    ax.margins(0.10)
     plt.axis("off")
     plt.show()
 
