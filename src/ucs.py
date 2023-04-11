@@ -9,11 +9,15 @@ def uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode):
 
     while(currentNode.node.name != goalNode.name):
         # Iterate through all the currentNode neighbors and push them into the prioqueue
+        # The prioqueue will check based on Cost of traversal so far
         for i in range(len(adjacencyMatrix[currentNode.node.idx])):
             if(adjacencyMatrix[currentNode.node.idx][i] > 0):
                 liveNode = LiveNode(Node(nodes[i].name, nodes[i].x, nodes[i].y, nodes[i].idx))
                 liveNode.addCost(adjacencyMatrix[currentNode.node.idx][i])
                 liveNode.addPrevNode(currentNode)
+
+                liveNode.defineCompValue(liveNode.costSoFar)    # Using f(n), evaluation with minimum traversal Cost so far
+
                 prioQueue.put(liveNode)
 
         currentNode = prioQueue.get()

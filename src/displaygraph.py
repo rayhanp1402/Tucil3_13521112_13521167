@@ -6,9 +6,11 @@ import matplotlib.pyplot as plt
 def checkIfPath(node1, node2, path):
     if(len(path) == 2):
         if(path[0] == node1.name):
-            return True
+            if(path[1] == node2.name):
+                return True
         if(path[1] == node1.name):
-            return True
+            if(path[0] == node2.name):
+                return True
     else:
         for i in range(1, len(path)-1):
             if(path[i] == node1.name):

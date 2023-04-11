@@ -9,6 +9,7 @@ def getNode(nodes, targetNodeName):
             return nodes[i]
     return None
 
+
 def inputNode(nodes):
     nodeFound = False
     startNode = nodes[0]
@@ -33,6 +34,24 @@ def inputNode(nodes):
     return (startNode, endNode)
 
 
+def inputAlgorithm(nodes, adjacencyMatrix, startNode, goalNode):
+    validAlgo = False
+    while(not(validAlgo)):
+        print("Algoritma : ")
+        print("1. Uniform Cost Search")
+        print("2. A*")
+        algo = input("Pilih nomor algoritma : ")
+
+        if(algo == '1'):
+            result = ucs.uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode)
+            validAlgo = True
+        elif(algo == '2'):
+            # A-star
+            validAlgo = True
+        else:
+            print("Input invalid. Coba lagi\n")
+
+    return result
 
 
 def main():
@@ -50,7 +69,7 @@ def main():
             startNode = startEndNode[0]
             goalNode = startEndNode[1]
 
-            result = ucs.uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode)
+            result = inputAlgorithm(nodes, adjacencyMatrix, startNode, goalNode)
 
             path = ucs.constructPath(result)
             ucs.printPath(path)
