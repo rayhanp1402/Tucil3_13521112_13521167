@@ -30,3 +30,66 @@ def sorting (list, dic):
     for i in value_dic.keys():
       sorted.append(i)
     return sorted
+
+def find_low_cost(list_to_sort):
+    """
+    This function returns the name of the city that have the lower cost in list_to_sort
+      :para list_to_sort (list): the list of tuples that contains the city point information
+      :return: the name of the city with lower estimated total cost f
+    """
+    return sorted(list_to_sort, key=lambda x: x[1])[0][0]
+
+
+def astar_search(akar_node, heuristics, start_node, goal_node): 
+    
+    #ketika node kosong, lalu mau di isi
+    buka_node = []
+    tutup_node = []
+
+    # Bikin dictionary prev, key = node dan value = parent node
+    prev = {}
+    for i in akar_node[1]:
+      prev[i] = None
+
+    # Bikin dictionary B value, D value
+    dictB= {}
+    dictB[start_node] = heuristics[start_node]
+
+    dictD = {}
+    dictD[start_node] = 0
+
+
+    buka_node.append(start_node)
+    
+    # looping open
+    while len(buka_node) > 0:
+        # mencari value terkecil
+        buka_node = find_low_cost(buka_node, dictB)
+        node_now = buka_node.pop(0)
+        tutup_node.append(node_now)
+
+        # Jika sudah mencapai simpul tujuan
+        if node_now == goal_node:
+            path = []
+            while node_now != start_node:
+                path.append(node_now)
+                node_now = prev[node_now]
+            path.append(start_node)
+            return path[::-1]
+
+        # looping simpul tetangga dari current node
+        node_tetangga = akar_node[0][node_now]  
+
+        for neighbor in node_tetangga.keys():    
+            # Kasus simpul sudah diperiksa
+            if(neighbor in tutup_node):
+                continue
+            prev[neighbor] = node_now
+
+            # Update nilai D value dan B value jika B value baru lebih minimum
+            if(dictD[node_now] + node_tetangga[neighbor] + heuristics[neighbor] < dictB.get(neighbor, 99999999)):
+              dictD[neighbor] = dictD[node_now] + node_tetangga[neighbor] 
+              dictB[neighbor] = dictD[neighbor] + heuristics[neighbor]
+              buka_node.append(neighbor)
+    # Return None jika tidak ada jalur
+    return None
