@@ -4,14 +4,20 @@ import matplotlib.pyplot as plt
 # import ucs
 
 def checkIfPath(node1, node2, path):
-    for i in range(1, len(path)-1):
-        if(path[i] == node1.name):
-            if(path[i-1] == node2.name or path[i+1] == node2.name):
-                return True
-        
-        if(path[i] == node2.name):
-            if(path[i-1] == node1.name or path[i+1] == node1.name):
-                return True
+    if(len(path) == 2):
+        if(path[0] == node1.name):
+            return True
+        if(path[1] == node1.name):
+            return True
+    else:
+        for i in range(1, len(path)-1):
+            if(path[i] == node1.name):
+                if(path[i-1] == node2.name or path[i+1] == node2.name):
+                    return True
+            
+            if(path[i] == node2.name):
+                if(path[i-1] == node1.name or path[i+1] == node1.name):
+                    return True
         
     return False
 
