@@ -1,8 +1,9 @@
+import os.path
 import filereader
 import ucs
-import displaygraph
-import os.path
 import star
+import displaygraph
+import displaymap
 
 def getNode(nodes, targetNodeName):
     for i in range(len(nodes)):
@@ -70,6 +71,25 @@ def inputHeuristic():
             print("Input invalid. Coba lagi\n")
 
 
+def display(nodes, adjacencyMatrix, path):
+    validDisplay = False
+    while(not(validDisplay)):
+        print("Pilih display dengan : ")
+        print("1. Network Graph")
+        print("2. Map")
+        displayType = input("Pilig nomor display : ")
+
+        if(displayType == '1'):
+            displaygraph.displayGraph(nodes, adjacencyMatrix, path)
+            validDisplay = True
+        elif(displayType == '2'):
+            print('\nMembuat map . . .')
+            displaymap.createMap(nodes, adjacencyMatrix, path)
+            print("Map telah dibuat dengan file map.html pada root")
+            validDisplay = True
+        else:
+            print("Input invalid. Coba lagi\n")
+
 def main():
     fileFound = False
 
@@ -92,10 +112,10 @@ def main():
 
             print("Cost = " + str(result.costSoFar))
 
-            displaygraph.displayGraph(nodes, adjacencyMatrix, path)
+            display(nodes, adjacencyMatrix, path)
             
         else:
             print("File tidak ditemukan. Coba lagi\n")
 
 
-# main()
+main()

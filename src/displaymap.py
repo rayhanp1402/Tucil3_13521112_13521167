@@ -1,7 +1,5 @@
 import folium
 import pandas as pd
-import networkx as nx
-import main
 from displaygraph import checkIfPath
 
 def fillArrayFromNodeField(nodes, attribute):
