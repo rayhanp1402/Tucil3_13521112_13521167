@@ -13,13 +13,15 @@
 
 ## Deskripsi Program
 Program ini dapat menentukan lintasan terpendek dari sebuah graf/peta dengan
-menggunakan Algoritma Uniform Cost Search (UCS) maupun A* (A-Star). Program menampilkan rute terpendek serta jarak/cost-nya pada CLI dari graf/peta yang didapat dari file input. Program juga menampilkan map/peta serta rute terpendeknya yang berupa Network Graph atau World Map sesuai keinginan pengguna.
+menggunakan Algoritma Uniform Cost Search (UCS) maupun A* (A-Star). Program menampilkan rute terpendek serta jarak/cost-nya pada CLI dari graf/peta yang didapat dari file input. Program juga melakukan visualisasi map/peta serta rute terpendeknya yang berupa Network Graph (dengan networkx) atau World Map (dengan Folium) sesuai keinginan pengguna.
 
 ## Requirements
 - [Python3](https://www.python.org/downloads/) 
 - matplotlib
+- numpy
 - networkx
-- Library time, platform, random, math (standard library, sehingga seharusnya sudah disertakan saat meng-install python)
+- Folium
+- Library built-in
 
 ## Cara Clone Program
 Agar program dapat dijalankan pada mesin Anda, clone repository program dengan cara
