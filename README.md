@@ -51,7 +51,8 @@ python src/main.py
 ```
 Apabila pengguna memilih untuk menampilkan map saat runtime program, map dibuat dan dapat diakses pada file <mark>map.html</mark> pada folder root
 <br>
-Rute/lintasan terpendek akan diberi warna merah
+<br>
+Catatan : Rute/lintasan terpendek akan diberi warna merah
 ## Authors
 | Nama                              | NIM      |
 | ----------------------------------| -------- |
