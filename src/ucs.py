@@ -60,18 +60,3 @@ def printPath(path):
             print(path[i] + " -> ", end="")
         else:
             print(path[i])
-
-
-# UCS Test
-# nodes = filereader.generateNodes("test/test.txt")
-# adjacencyMatrix = filereader.generateAdjacencyMatrix("test/test.txt")
-# startNode = nodes[0]
-# goalNode = nodes[-1]
-
-# result = uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode)
-# print("Node = " + result.node.name)
-
-# path = constructPath(result)
-# printPath(path)
-
-# print("Cost = " + str(result.costSoFar))

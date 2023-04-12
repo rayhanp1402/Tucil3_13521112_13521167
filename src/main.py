@@ -71,20 +71,20 @@ def inputHeuristic():
             print("Input invalid. Coba lagi\n")
 
 
-def display(nodes, adjacencyMatrix, path):
+def display(nodes, adjacencyMatrix, path, startNode):
     validDisplay = False
     while(not(validDisplay)):
         print("Pilih display dengan : ")
         print("1. Network Graph")
         print("2. Map")
-        displayType = input("Pilig nomor display : ")
+        displayType = input("Pilih nomor display : ")
 
         if(displayType == '1'):
             displaygraph.displayGraph(nodes, adjacencyMatrix, path)
             validDisplay = True
         elif(displayType == '2'):
             print('\nMembuat map . . .')
-            displaymap.createMap(nodes, adjacencyMatrix, path)
+            displaymap.createMap(nodes, adjacencyMatrix, path, startNode)
             print("Map telah dibuat dengan file map.html pada root")
             validDisplay = True
         else:
@@ -112,7 +112,7 @@ def main():
 
             print("Cost = " + str(result.costSoFar))
 
-            display(nodes, adjacencyMatrix, path)
+            display(nodes, adjacencyMatrix, path, startNode)
             
         else:
             print("File tidak ditemukan. Coba lagi\n")

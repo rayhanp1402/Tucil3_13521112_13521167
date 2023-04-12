@@ -1,7 +1,5 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-# import filereader
-# import ucs
 
 def checkIfPath(node1, node2, path):
     if(len(path) == 2):
@@ -59,16 +57,3 @@ def displayGraph(nodes, adjacencyMatrix, path):
     ax.margins(0.10)
     plt.axis("off")
     plt.show()
-
-
-
-# Display Graph Test
-# nodes = filereader.generateNodes("test/test.txt")
-# adjacencyMatrix = filereader.generateAdjacencyMatrix("test/test.txt")
-# startNode = nodes[0]
-# goalNode = nodes[-1]
-
-# result = ucs.uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode)
-# path = ucs.constructPath(result)
-
-# displayGraph(nodes, adjacencyMatrix, path)

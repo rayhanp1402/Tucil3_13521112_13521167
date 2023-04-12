@@ -17,7 +17,7 @@ def fillArrayFromNodeField(nodes, attribute):
 
 
 
-def createMap(nodes, adjacencyMatrix, path):
+def createMap(nodes, adjacencyMatrix, path, startNode):
     lon = fillArrayFromNodeField(nodes, 'y')
     lat = fillArrayFromNodeField(nodes, 'x')
     name = fillArrayFromNodeField(nodes, 'name')
@@ -28,7 +28,7 @@ def createMap(nodes, adjacencyMatrix, path):
     'name':name,
     }, dtype=str)
 
-    m = folium.Map()
+    m = folium.Map(location=[startNode.x, startNode.y], zoom_start = 12)
     # add marker one by one on the map
     for i in range(0,len(data)):
         folium.Marker(
@@ -53,11 +53,3 @@ def createMap(nodes, adjacencyMatrix, path):
                 edgeColor = 'blue'
 
     m.save("map.html")
-
-
-# Display Map Test
-# nodes = main.filereader.generateNodes("test/europecapitals.txt")
-# adjacencyMatrix = main.filereader.generateAdjacencyMatrix("test/europecapitals.txt")
-# result = main.ucs.uniformCostSearch(nodes, adjacencyMatrix, nodes[2], nodes[4])
-# path = main.ucs.constructPath(result)
-# createMap(nodes, adjacencyMatrix, path)
