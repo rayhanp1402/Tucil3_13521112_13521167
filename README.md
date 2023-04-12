@@ -27,7 +27,7 @@ menggunakan Algoritma Uniform Cost Search (UCS) maupun A* (A-Star). Program mena
 Agar program dapat dijalankan pada mesin Anda, clone repository program dengan cara
 
 ```sh
-git clone https://github.com/rayhanp1402/Tucil3_13521112.git
+git clone https://github.com/rayhanp1402/Tucil3_13521112_13521167.git
 ```
 
 ## Format Input File Text
