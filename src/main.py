@@ -2,7 +2,7 @@ import filereader
 import ucs
 import displaygraph
 import os.path
-import astar
+import star
 
 def getNode(nodes, targetNodeName):
     for i in range(len(nodes)):
@@ -47,12 +47,27 @@ def inputAlgorithm(nodes, adjacencyMatrix, startNode, goalNode):
             result = ucs.uniformCostSearch(nodes, adjacencyMatrix, startNode, goalNode)
             validAlgo = True
         elif(algo == '2'):
-            result = astar.astar(nodes, adjacencyMatrix, startNode, goalNode)
+            heuristicType = inputHeuristic()
+            result = star.astar_search(nodes, adjacencyMatrix, startNode, goalNode, heuristicType)
             validAlgo = True
         else:
             print("Input invalid. Coba lagi\n")
 
     return result
+
+
+def inputHeuristic():
+    validHeuristic = False
+    while(not(validHeuristic)):
+        print("Tipe Heuristik : ")
+        print("1. Euclidean Distance")
+        print("2. Haversine Distance")
+        heuristicType = input("Pilih nomor heuristic : ")
+
+        if(heuristicType == '1' or heuristicType == '2'):
+            return heuristicType
+        else:
+            print("Input invalid. Coba lagi\n")
 
 
 def main():
