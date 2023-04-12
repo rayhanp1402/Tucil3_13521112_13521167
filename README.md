@@ -12,7 +12,8 @@
 7. [Authors](#authors)
 
 ## Deskripsi Program
-
+Program ini dapat menentukan lintasan terpendek dari sebuah graf/peta dengan
+menggunakan Algoritma Uniform Cost Search (UCS) maupun A* (A-Star). Program menampilkan rute terpendek serta jarak/cost-nya pada CLI dari graf/peta yang didapat dari file input. Program juga menampilkan map/peta serta rute terpendeknya yang berupa Network Graph atau World Map sesuai keinginan pengguna.
 
 ## Requirements
 - [Python3](https://www.python.org/downloads/) 
@@ -36,7 +37,8 @@ git clone https://github.com/rayhanp1402/Tucil3_13521112.git
 Contoh dapat ditemukan pada file text yang ada di dalam folder test
 <br>
 <br>
-Catatan:  
+Catatan:
+- Pastikan file txt yang ingin digunakan berada dalam folder test
 - Apabila format tidak sesuai, mungkin dapat membuat program error atau tidak berjalan sesuai yang diinginkan
 - Start Node dan Goal/End Node di-input pengguna pada runtime
 
@@ -45,6 +47,7 @@ Jalankan perintah berikut pada folder root repository
 ```sh
 python src/main.py
 ```
+Apabila pengguna memilih untuk menampilkan map saat runtime program, map dibuat dan dapat diakses pada file <mark>map.html</mark> pada folder root
 ## Authors
 | Nama                              | NIM      |
 | ----------------------------------| -------- |
