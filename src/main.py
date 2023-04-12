@@ -98,4 +98,4 @@ def main():
             print("File tidak ditemukan. Coba lagi\n")
 
 
-main()
+# main()
